@@ -16,6 +16,7 @@ public class Exam1Project
     /**
      * @param args the command line arguments
      */
+<<<<<<< HEAD
     public static void main(String[] args)
     {
         // TODO code application logic here
@@ -88,5 +89,14 @@ public class Exam1Project
         
         System.out.println("Here is the current size: " + myLinkedStack.size());
         System.out.println("The LinkedStack object is empty: true or false? --> " + myLinkedStack.isEmpty());
+=======
+    public static void main(String[] args) {
+	// 
+	// TODO EXAM 1 - TAKEHOME
+	// 1. Complete the ArrayStack and LinkedStack classes (all 6 methods)
+        // 2. In this main, write a test for each method AND any exceptions
+        // 3. Push all of the changes back to the repository (git push)
+
+>>>>>>> refs/remotes/origin/master
     }
 }
