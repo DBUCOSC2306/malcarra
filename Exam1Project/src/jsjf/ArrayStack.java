@@ -13,11 +13,11 @@ import java.util.Arrays;
 public class ArrayStack<T> implements StackADT<T>
 {
     private final static int DEFAULT_CAPACITY = 100;
-
     private int top;  
     private T[] stack;
   
     /**
+     * Default Constructor
      * Creates an empty stack using the default capacity.
      */
     public ArrayStack()
@@ -26,6 +26,7 @@ public class ArrayStack<T> implements StackADT<T>
     }
 
     /**
+     * Constructor
      * Creates an empty stack using the specified capacity.
      * @param initialCapacity the initial size of the array 
      */
@@ -42,8 +43,10 @@ public class ArrayStack<T> implements StackADT<T>
      */
     public void push(T element)
     {
-        if (size() == stack.length) 
+        if (size() == stack.length)
+        {
             expandCapacity();
+        }
 
         stack[top] = element;
         top++;
@@ -55,24 +58,25 @@ public class ArrayStack<T> implements StackADT<T>
      */
     private void expandCapacity()
     {
-        stack = Arrays.copyOf(stack, stack.length * 2);   
+        stack = Arrays.copyOf(stack, stack.length * 2);
     }
 
     /**
      * Removes the element at the top of this stack and returns a
-     * reference to it. 
+     * reference to it.
      * @return element removed from top of stack
-     * @throws EmptyCollectionException if stack is empty 
+     * @throws EmptyCollectionException if stack is empty
      */
     public T pop() throws EmptyCollectionException
     {
         if (isEmpty())
+        {   
             throw new EmptyCollectionException("stack");
+        }
 
         top--;
         T result = stack[top];
-        stack[top] = null; 
-
+        stack[top] = null;
         return result;
     }
    
@@ -85,9 +89,11 @@ public class ArrayStack<T> implements StackADT<T>
     public T peek() throws EmptyCollectionException
     {
         if (isEmpty())
+        {
             throw new EmptyCollectionException("stack");
+        }
 
-        return stack[top-1];
+        return stack[top - 1];
     }
 
     /**
@@ -96,7 +102,8 @@ public class ArrayStack<T> implements StackADT<T>
      */
     public boolean isEmpty()
     {
-        // TODOCOSC2306
+        // TODOCOSC2306 /// DONE
+        return (top <= 0);
     }
  
     /**
@@ -105,7 +112,8 @@ public class ArrayStack<T> implements StackADT<T>
      */
     public int size()
     {
-        // TODOCOSC2306
+        // TODOCOSC2306 /// DONE
+        return top;
     }
 
     /**
@@ -114,7 +122,13 @@ public class ArrayStack<T> implements StackADT<T>
      */
     public String toString()
     {
-        // TODOCOSC2306
+        // TODOCOSC2306 /// DONE
+        String result = "";
+        for (int i = 0; i < top; i++)
+        {
+            result = result + stack[i].toString() + "\n";
+        }
+
+        return result.toString();
     }
 }
-

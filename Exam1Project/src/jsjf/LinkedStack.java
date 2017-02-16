@@ -15,6 +15,7 @@ public class LinkedStack<T> implements StackADT<T>
     private LinearNode<T> top; 
 
     /**
+     * Default Constructor
      * Creates an empty stack.
      */
     public LinkedStack()
@@ -30,7 +31,6 @@ public class LinkedStack<T> implements StackADT<T>
     public void push(T element)
     {
         LinearNode<T> temp = new LinearNode<T>(element);
-
         temp.setNext(top);
         top = temp;
         count++;
@@ -45,33 +45,41 @@ public class LinkedStack<T> implements StackADT<T>
     public T pop() throws EmptyCollectionException
     {
         if (isEmpty())
+        {
             throw new EmptyCollectionException("stack");
+        }
 
         T result = top.getElement();
         top = top.getNext();
         count--;
- 
         return result;
     }
    
     /**
      * Returns a reference to the element at the top of this stack.
-     * The element is not removed from the stack.  
+     * The element is not removed from the stack.
      * @return element on top of stack
-     * @throws EmptyCollectionException if the stack is empty  
+     * @throws EmptyCollectionException if the stack is empty
      */
     public T peek() throws EmptyCollectionException
     {
-        // TODOCOSC2306
+        // TODOCOSC2306 /// DONE
+        if (isEmpty())
+        {
+            throw new EmptyCollectionException("stack");
+        }
+
+        return top.getElement();
     }
 
     /**
-     * Returns true if this stack is empty and false otherwise. 
+     * Returns true if this stack is empty and false otherwise.
      * @return true if stack is empty
      */
     public boolean isEmpty()
     {
-        // TODOCOSC2306
+        // TODOCOSC2306 /// DONE
+        return (count <= 0);
     }
  
     /**
@@ -80,7 +88,8 @@ public class LinkedStack<T> implements StackADT<T>
      */
     public int size()
     {
-        // TODOCOSC2306
+        // TODOCOSC2306 /// DONE
+        return count;
     }
 
     /**
@@ -89,6 +98,16 @@ public class LinkedStack<T> implements StackADT<T>
      */
     public String toString()
     {
-        // TODOCOSC2306
+        // TODOCOSC2306 /// DONE
+        String result = "";
+        LinearNode<T> current = top;
+
+        while (current != null)
+        {
+            result = result + current.getElement().toString() + "\n";
+            current = current.getNext();
+        }
+
+        return result.toString();
     }
 }
