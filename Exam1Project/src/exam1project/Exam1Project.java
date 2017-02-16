@@ -31,11 +31,30 @@ public class Exam1Project
         System.out.println("Now, let's pop both items off the stack.");
         myArrayStack.pop();
         myArrayStack.pop();
+        
+        try
+        {
+            myArrayStack.pop();
+        }
+        catch (EmptyCollectionException e)
+        {
+            System.out.println("Array Stack pop() function caught...");
+        }
+        
+        try
+        {
+            myArrayStack.peek();
+        }
+        catch (EmptyCollectionException ex)
+        {
+            System.out.println("Array Stack peek() function caught...");
+        }
+        
         System.out.println("Here is the current size: " + myArrayStack.size());
         System.out.println("The ArrayStack object is empty: true or false? --> " + myArrayStack.isEmpty());
-
+        
         System.out.println("\nNow, let's move to the LinkedStack.\n");
-
+        
         System.out.println("Creating a LinkedStack object...");
         LinkedStack<String> myLinkedStack = new LinkedStack<String>();
         System.out.println("First, let's push 'randomExample', then 'foo' onto the stack.");
@@ -48,6 +67,25 @@ public class Exam1Project
         System.out.println("Now, let's pop an item off the stack.");
         myLinkedStack.pop();
         myLinkedStack.pop();
+        
+        try
+        {
+            myLinkedStack.pop();
+        }
+        catch (EmptyCollectionException ece)
+        {
+            System.out.println("Linked Stack pop() function caught...");
+        }
+        
+        try
+        {
+            myLinkedStack.peek();
+        }
+        catch (EmptyCollectionException ece)
+        {
+            System.out.println("Linked Stack peek() function caught...");
+        }
+        
         System.out.println("Here is the current size: " + myLinkedStack.size());
         System.out.println("The LinkedStack object is empty: true or false? --> " + myLinkedStack.isEmpty());
     }
