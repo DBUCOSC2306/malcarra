@@ -7,14 +7,12 @@ package jsjf;
  * @author Lewis and Chase
  * @version 4.0
  */
-
 public interface IndexedListADT<T> extends ListADT<T>
 {
     /**  
      * Inserts the specified element at the specified index. 
      * 
-     * @param index   the index into the array to which the element is to be
-     *                inserted.
+     * @param index   the index into the array to which the element is to be inserted.
      * @param element the element to be inserted into the array   
      */
     public void add(int index, T element);
